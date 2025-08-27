@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/an-old-hope.css" id="code-theme">
+  </head>
+  <body>
+    <!-- Rounded switch -->
+    <label class="switch">
+      <input type="checkbox" id="lightmode">
+      <span class="slider round"></span>
+    </label>
+    <div class="reveal">
+      <div class="slides">
+	
+      <section data-markdown="data-markdown/slide_1.md"
+        data-separator="^\r?\n---\r?\n$"k
+        data-separator-vertical="^\r?\n\+\+\+\r?\n$">
+      </section>
+	
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      function updateTheme(ev){
+        if (ev.target.checked) {
+          document.getElementById("theme").setAttribute("href", "dist/theme/white.css")
+          document.getElementById("code-theme").setAttribute("href", "plugin/highlight/a11y-light.css")
+        }
+        else {
+          document.getElementById("theme").setAttribute("href", "dist/theme/black.css")
+          document.getElementById("code-theme").setAttribute("href", "plugin/highlight/an-old-hope.css")
+        }
+      }
+      document.getElementById("lightmode").addEventListener("click", updateTheme)
+
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+      });
+    </script>
+  </body>
+</html>
