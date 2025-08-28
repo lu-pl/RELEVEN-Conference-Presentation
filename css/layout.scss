@@ -68,3 +68,26 @@
 .reveal .justify-start { justify-content: flex-start; }
 .reveal .justify-center { justify-content: center; }
 .reveal .justify-end { justify-content: flex-end; }
+
+.font-size-75 {
+	font-size: 75%;
+}
+.font-size-125 {
+	font-size: 125%;
+}
+.flex {
+	display: flex;
+	justify-content: space-between ;
+}
+.reveal table.mx-25{
+	margin-top: 25%;
+	margin-bottom: 25%;
+}
+
+.bl-1{
+	border-left: 1px solid;
+}
+
+.fragmented-list li.fragment{
+	margin-top: 24px;
+}

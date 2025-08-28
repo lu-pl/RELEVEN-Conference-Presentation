@@ -1,64 +1,57 @@
-## Test
-- Point 1
-- Point 2
-- Point 3
+**Towards Declarative LOD Backends** <!-- .element: style="font-size: 120%; margin-bottom: 1.5em" -->
+
+**Generating the RELEVEN Graph API from RDF Path Expressions** <!-- .element: style="font-size: 85%; margin-bottom: 1.5em" -->
+
+Lukas Plank & Kevin Stadler <!-- .element style="margin: 2em 0 0.5em;" -->
+
+<div class="font-size-75">
+Austrian Centre for Digital Humanities<br> 
+Austrian Academy of Sciences
+</div>
 
 +++
 
-## Goals
-- Point 1 <!-- .element: class="fragment" -->
-- Point 2 <!-- .element: class="fragment" -->
-- Point 3 <!-- .element: class="fragment" -->
+#### Recap
+RDF Graphs, Semantic Technologies, STAR Model
+
+<br>
+	
+<ul style="font-size: 0.8em;">
+  <li class="fragment">Semantic Triples: <strong>Subject – Predicate – Object</strong>
+   <img src="./data-markdown/triple.svg"
+         alt="Basic RDF Graph" style="max-width: 60%; margin-top: 0.5em;">
+  </li>
+  
+  
+  <li class="fragment"><strong>Explicit linking</strong> of entities via ontologically defined Predicates</li>
+  <li class="fragment"><strong>URIs</strong> as global identifiers; <strong>Federation</strong></li>
+  <li class="fragment">Automated <strong>Reasoning</strong> and <strong>Inferencing</strong></li>
+</ul>
+
 
 +++
 
-#### Code 1
-```python
-class ttl:
-    def __init__(
-        self,
-        uri: _TripleSubject,
-        *predicate_object_pairs: tuple[
-            URIRef,
-            _TripleObject
-            | list
-            | Iterator
-            | Self
-            | str
-            | tuple[_TripleObject | str, ...],
-        ],
-        graph: Graph | None = None,
-    ) -> None:
-        self.uri = uri
-        self.predicate_object_pairs = predicate_object_pairs
-        self.graph = Graph() if graph is None else deepcopy(graph)
-        self._iter = iter(self)
-		# ...
+**Semantic Expressiveness and Reification** <!-- .element: style="font-size: 85%; margin-bottom: 1.5em" -->
+<img src="./data-markdown/star.svg" alt="Basic RDF Graph" style="max-width: 60%; margin-top: 0.5em;">
+	
+
++++
+
+#### SPARQL
+
+```sparql
+select ?s ?p ?o
+where {
+	?s ?p ?o .
+}
 ```
-
-+++
-
-#### Code 2
-```python
-	# class ttl
-    def __iter__(self) -> Iterator[_Triple]:
-        """Generate an iterator of tuple-based triple representations."""
-        for pred, obj in self.predicate_object_pairs:
-            match obj:
-                case ttl():
-                    yield (self.uri, pred, obj.uri)
-                    yield from obj
-                case list() | Iterator():
-                    _b = BNode()
-                    yield (self.uri, pred, _b)
-                    yield from ttl(_b, *obj)
-                case tuple():
-                    _object_list = zip(repeat(pred), obj)
-                    yield from ttl(self.uri, *_object_list)
-                case obj if isinstance(obj, _TripleObject):
-                    yield (self.uri, pred, obj)
-                case str():
-                    yield (self.uri, pred, Literal(obj))
-                case _:
-                    raise Exception("This should never happen.")
+	
+```sparql
+select ?s ?p ?o
+where {
+	?e13 a crm:E13_Attribute_Assignment ;
+		crm:P140_assigned_attribute_to ?s ;
+		crm:P177_assigned_property_type ?p ;
+		crm:P141_assigned ?o .
+}
 ```
