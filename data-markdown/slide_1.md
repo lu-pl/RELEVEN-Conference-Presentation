@@ -241,7 +241,7 @@ JSON Output
 
 
 <ul style="font-size: 0.8em;">
-<li class="fragment">RDFProxy aims to provide a generic library solution for building <br/>model-driven REST APIs on top of SPARQL endpoints.</li>
+<li class="fragment">RDFProxy aims to provide a generic library solution for building REST APIs on top of SPARQL endpoints.</li>
   <li class="fragment">Model-driven approach for transforming SPARQL results for Linked Data clients</li>
   <li class="fragment">still early stage of development; 
   <br/>RELEVEN Project as <strong>challenging</strong> initial trial for the library
