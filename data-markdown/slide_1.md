@@ -33,7 +33,7 @@ RDF Graphs, Semantic Technologies, STAR Model
 +++
 
 **Semantic Expressiveness and Reification** <!-- .element: style="font-size: 85%; margin-bottom: 1.5em" -->
-<img src="./data-markdown/star.svg" alt="Basic RDF Graph" style="max-width: 60%; margin-top: 0.5em;">
+<img src="./data-markdown/star.png" alt="Basic RDF Graph" style="max-width: 60%; margin-top: 0.5em;">
 	
 
 +++
