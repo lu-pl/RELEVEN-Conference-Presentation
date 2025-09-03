@@ -121,7 +121,7 @@ WHERE {
 
 +++
 
-<img src="./data-markdown/wisskas.drawio.svg" style="filter:invert(1)">
+<img src="./data-markdown/wisskas.drawio.png">
 
 +++
 
