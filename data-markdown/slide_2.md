@@ -30,6 +30,10 @@ STAR model &rarr; <span style="width: 20em; text-align: center;">???</span> &rar
 
 +++
 
+<iframe src="./fullmodel.html" style="height: 80vh; width: 100%;" />
+
++++
+
 <iframe src="./pathbuilder.html" style="height: 80vh; width: 100%;" />
 
 +++
